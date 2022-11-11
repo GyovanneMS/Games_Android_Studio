@@ -36,7 +36,7 @@ class SignUpActivity : AppCompatActivity() {
     private fun save() {
         val client = Client();
         client.cidade = binding.aInputCity.toString();
-        client.foto = getDrawable(R.drawable.ic_baseline_person_24).toS
+        client.foto = getDrawable(R.drawable.ic_baseline_person_24)
     }
 
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
