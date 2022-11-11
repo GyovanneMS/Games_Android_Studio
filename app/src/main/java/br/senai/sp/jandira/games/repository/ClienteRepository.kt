@@ -2,29 +2,29 @@ package br.senai.sp.jandira.games.repository
 
 import android.content.Context
 import br.senai.sp.jandira.games.DAO.DB
-import br.senai.sp.jandira.games.model.Cliente
+import br.senai.sp.jandira.games.model.Client
 
 class ClienteRepository(context: Context) {
 
     private val db = DB.getDataBase(context).clienteDao();
 
-    fun save(contact: Cliente): Long{
+    fun save(contact: Client): Long{
         return db.save(contact);
     }
 
-    fun update(contact: Cliente): Int{
+    fun update(contact: Client): Int{
         return db.update(contact);
     }
 
-    fun delete(contact: Cliente): Int{
+    fun delete(contact: Client): Int{
         return db.delete(contact);
     }
 
-    fun getAll(): List<Cliente> {
+    fun getAll(): List<Client> {
         return db.getAll();
     }
 
-    fun getClienteById(id: Int): Cliente{
+    fun getClienteById(id: Int): Client{
         return db.getContactById(id);
     }
 }

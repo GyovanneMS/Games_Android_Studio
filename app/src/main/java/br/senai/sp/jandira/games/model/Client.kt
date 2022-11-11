@@ -9,7 +9,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "tbl_cliente")
-class Cliente {
+class Client {
 
     @PrimaryKey(autoGenerate = true)
     var id = 0;
@@ -22,9 +22,9 @@ class Cliente {
 
 
     @ColumnInfo(name = "data_lancamento")
-    var dataNascimento = 0;
-    var nivel: Enum<Level>? = null;
-    var console = Console();
-    var genero = Char;
+    var dataNascimento: LocalDate? = null;
+    var nivel = Level.Land;
+    var console: Console? = null;
+    var genero = 'I';
 }
 

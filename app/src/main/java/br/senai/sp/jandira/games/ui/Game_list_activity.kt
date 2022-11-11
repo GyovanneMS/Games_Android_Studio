@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import br.senai.sp.jandira.games.R
 
-class game_list_activity : AppCompatActivity() {
+class GameListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_list)
@@ -18,4 +18,4 @@ class game_list_activity : AppCompatActivity() {
 
         return true
     }
-}//klhlk
+}

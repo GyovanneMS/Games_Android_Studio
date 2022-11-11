@@ -31,16 +31,16 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="1dp"
         android:contentDescription="@string/none"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/imageView16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView21" />
 
             <EditText
-                android:id="@+id/inputEmail"
+                android:id="@+id/aInputEmail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
@@ -127,9 +127,10 @@
                 android:id="@+id/imageView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-                app:srcCompat="@drawable/ic_baseline_person_small"
-                tools:layout_editor_absoluteY="381dp" />
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="@+id/aInputPassword"
+                app:layout_constraintTop_toBottomOf="@+id/aInputPassword"
+                app:srcCompat="@drawable/ic_baseline_person_small" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -144,7 +145,7 @@
                 app:layout_constraintTop_toTopOf="@+id/imageView23" />
 
             <EditText
-                android:id="@+id/inputName"
+                android:id="@+id/aInputName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -153,12 +154,12 @@
                 android:inputType="textPersonName"
                 android:paddingBottom="15dp"
                 android:textColor="@color/grey"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
+                app:layout_constraintEnd_toEndOf="@+id/aInputPassword"
                 app:layout_constraintStart_toStartOf="@+id/imageView23"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <EditText
-                android:id="@+id/inputCity"
+                android:id="@+id/aInputCity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -167,12 +168,12 @@
                 android:inputType="textPersonName"
                 android:paddingBottom="15dp"
                 android:textColor="@color/grey"
-                app:layout_constraintEnd_toEndOf="@+id/inputName"
-                app:layout_constraintStart_toStartOf="@+id/inputName"
-                app:layout_constraintTop_toBottomOf="@+id/inputName" />
+                app:layout_constraintEnd_toEndOf="@+id/aInputName"
+                app:layout_constraintStart_toStartOf="@+id/aInputName"
+                app:layout_constraintTop_toBottomOf="@+id/aInputName" />
 
             <EditText
-                android:id="@+id/inputBirthDate"
+                android:id="@+id/aInputBirthDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -181,9 +182,9 @@
                 android:inputType="date"
                 android:paddingBottom="15dp"
                 android:textColor="@color/grey"
-                app:layout_constraintEnd_toEndOf="@+id/inputCity"
-                app:layout_constraintStart_toStartOf="@+id/inputCity"
-                app:layout_constraintTop_toBottomOf="@+id/inputCity" />
+                app:layout_constraintEnd_toEndOf="@+id/aInputCity"
+                app:layout_constraintStart_toStartOf="@+id/aInputCity"
+                app:layout_constraintTop_toBottomOf="@+id/aInputCity" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -193,8 +194,8 @@
                 android:text="@string/gaming_leve"
                 android:textColor="@color/grey"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/inputBirthDate"
-                app:layout_constraintTop_toBottomOf="@+id/inputBirthDate" />
+                app:layout_constraintStart_toStartOf="@+id/aInputBirthDate"
+                app:layout_constraintTop_toBottomOf="@+id/aInputBirthDate" />
 
             <TextView
                 android:id="@+id/edttLevel"
@@ -203,9 +204,9 @@
                 android:text="@string/casual"
                 android:textColor="@color/navy_blue"
                 android:textSize="32sp"
-                app:layout_constraintBottom_toBottomOf="@+id/slider_console"
-                app:layout_constraintEnd_toEndOf="@+id/inputBirthDate"
-                app:layout_constraintTop_toTopOf="@+id/slider_console" />
+                app:layout_constraintBottom_toBottomOf="@+id/aSlider_console"
+                app:layout_constraintEnd_toEndOf="@+id/aInputBirthDate"
+                app:layout_constraintTop_toTopOf="@+id/aSlider_console" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -215,11 +216,11 @@
                 android:text="@string/favorite_console"
                 android:textColor="@color/grey"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/slider_console"
-                app:layout_constraintTop_toBottomOf="@+id/slider_console" />
+                app:layout_constraintStart_toStartOf="@+id/aSlider_console"
+                app:layout_constraintTop_toBottomOf="@+id/aSlider_console" />
 
             <Spinner
-                android:id="@+id/consoleFavorito"
+                android:id="@+id/aConsoleFavorito"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -239,11 +240,11 @@
                 android:layout_marginTop="24dp"
                 android:text="@string/genre"
                 android:textColor="@color/grey"
-                app:layout_constraintStart_toStartOf="@+id/consoleFavorito"
-                app:layout_constraintTop_toBottomOf="@+id/consoleFavorito" />
+                app:layout_constraintStart_toStartOf="@+id/aConsoleFavorito"
+                app:layout_constraintTop_toBottomOf="@+id/aConsoleFavorito" />
 
             <com.google.android.material.slider.Slider
-                android:id="@+id/slider_console"
+                android:id="@+id/aSlider_console"
                 android:layout_width="0dp"
                 android:layout_height="300dp"
                 android:layout_marginTop="8dp"
@@ -257,45 +258,49 @@
                 app:layout_constraintStart_toStartOf="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-            <RadioButton
-                android:id="@+id/Button_femine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:button="@drawable/ic_baseline_check_circle_24"
-                android:buttonTint="@color/grey"
-                android:paddingStart="5dp"
-                android:text="@string/feminine"
-                android:textColor="@color/grey"
-                app:layout_constraintStart_toStartOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-            <RadioButton
-                android:id="@+id/Button_Masculine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@drawable/ic_baseline_check_circle_24"
-                android:buttonTint="@color/grey"
-                android:keyboardNavigationCluster="false"
-                android:paddingStart="5dp"
-                android:text="@string/masculine"
-                android:textColor="@color/grey"
-                android:textColorHint="@color/black"
-                app:layout_constraintEnd_toEndOf="@+id/consoleFavorito"
-                app:layout_constraintStart_toEndOf="@+id/Button_femine"
-                app:layout_constraintTop_toTopOf="@+id/Button_femine" />
-
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/aInputPassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="@+id/inputEmail"
-                app:layout_constraintStart_toStartOf="@+id/inputEmail"
-                app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/aInputEmail"
+                app:layout_constraintStart_toStartOf="@+id/aInputEmail"
+                app:layout_constraintTop_toBottomOf="@+id/aInputEmail" />
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="10dp"
+                android:text="Button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonMasculino" />
+
+            <RadioButton
+                android:id="@+id/buttonFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:checked="false"
+                android:text="Female"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <RadioButton
+                android:id="@+id/buttonMasculino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="masculine"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonFemale"
+                app:layout_constraintEnd_toEndOf="@+id/aConsoleFavorito"
+                app:layout_constraintTop_toTopOf="@+id/buttonFemale" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

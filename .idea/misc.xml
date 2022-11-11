@@ -29,7 +29,7 @@
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.5" />
         <entry key="app/src/main/res/layout/holder_layout.xml" value="0.5901041666666667" />
         <entry key="app/src/main/res/menu/menu_gamelist.xml" value="0.5192708333333333" />
-        <entry key="app/src/main/res/menu/menu_new_users.xml" value="0.5192708333333333" />
+        <entry key="app/src/main/res/menu/menu_new_users.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.4525" />
       </map>
     </option>
