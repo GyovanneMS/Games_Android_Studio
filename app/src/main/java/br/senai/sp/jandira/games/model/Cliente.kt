@@ -12,9 +12,9 @@ import androidx.room.PrimaryKey
 class Cliente {
 
     @PrimaryKey(autoGenerate = true)
-    var codigo = 0;
+    var id = 0;
 
-    var nomeGame = "";
+    var nome = "";
     var email = "";
     var senha = "";
     var foto: Bitmap? = null;
@@ -22,7 +22,7 @@ class Cliente {
 
 
     @ColumnInfo(name = "data_lancamento")
-    var dataNascimento: LocalDate? = null;
+    var dataNascimento = 0;
     var nivel: Enum<Level>? = null;
     var console = Console();
     var genero = Char;
