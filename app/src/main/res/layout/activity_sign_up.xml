@@ -37,10 +37,10 @@
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/imageView16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -123,27 +123,13 @@
                 app:layout_constraintStart_toStartOf="@+id/imageView22"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-            <EditText
-                android:id="@+id/inputPassword"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:hint="@string/password"
-                android:inputType="textEmailAddress"
-                android:paddingBottom="15dp"
-                app:layout_constraintEnd_toEndOf="@+id/inputEmail"
-                app:layout_constraintStart_toStartOf="@+id/inputEmail"
-                app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
-
             <ImageView
                 android:id="@+id/imageView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:layout_constraintStart_toStartOf="@+id/inputPassword"
-                app:layout_constraintTop_toBottomOf="@+id/inputPassword"
-                app:srcCompat="@drawable/ic_baseline_person_small" />
+                app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
+                app:srcCompat="@drawable/ic_baseline_person_small"
+                tools:layout_editor_absoluteY="381dp" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -163,11 +149,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:ems="10"
+                android:hint="@string/name"
                 android:inputType="textPersonName"
                 android:paddingBottom="15dp"
-                android:text="@string/name"
                 android:textColor="@color/grey"
-                app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+                app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
                 app:layout_constraintStart_toStartOf="@+id/imageView23"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -177,9 +163,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:ems="10"
+                android:hint="@string/city"
                 android:inputType="textPersonName"
                 android:paddingBottom="15dp"
-                android:text="@string/city"
                 android:textColor="@color/grey"
                 app:layout_constraintEnd_toEndOf="@+id/inputName"
                 app:layout_constraintStart_toStartOf="@+id/inputName"
@@ -191,9 +177,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:ems="10"
+                android:hint="@string/birth"
                 android:inputType="date"
                 android:paddingBottom="15dp"
-                android:text="@string/birth"
                 android:textColor="@color/grey"
                 app:layout_constraintEnd_toEndOf="@+id/inputCity"
                 app:layout_constraintStart_toStartOf="@+id/inputCity"
@@ -290,6 +276,7 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/ic_baseline_check_circle_24"
                 android:buttonTint="@color/grey"
+                android:keyboardNavigationCluster="false"
                 android:paddingStart="5dp"
                 android:text="@string/masculine"
                 android:textColor="@color/grey"
@@ -297,6 +284,18 @@
                 app:layout_constraintEnd_toEndOf="@+id/consoleFavorito"
                 app:layout_constraintStart_toEndOf="@+id/Button_femine"
                 app:layout_constraintTop_toTopOf="@+id/Button_femine" />
+
+            <EditText
+                android:id="@+id/editTextTextPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="@+id/inputEmail"
+                app:layout_constraintStart_toStartOf="@+id/inputEmail"
+                app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

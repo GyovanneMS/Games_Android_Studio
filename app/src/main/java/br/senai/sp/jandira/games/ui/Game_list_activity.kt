@@ -18,4 +18,4 @@ class game_list_activity : AppCompatActivity() {
 
         return true
     }
-}
+}//klhlk
