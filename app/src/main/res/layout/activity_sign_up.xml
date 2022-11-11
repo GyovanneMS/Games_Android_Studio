@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/beige"
-    tools:context=".SignUpActivity">
+    tools:context=".ui.SignUpActivity">
 
     <ImageView
         android:id="@+id/imageView14"
@@ -22,7 +22,7 @@
         android:id="@+id/imageView16"
         android:layout_width="0dp"
         android:layout_height="95dp"
-        android:layout_marginBottom="-8dp"
+        android:layout_marginBottom="-2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

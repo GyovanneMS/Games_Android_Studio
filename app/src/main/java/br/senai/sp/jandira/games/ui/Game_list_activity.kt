@@ -1,8 +1,9 @@
-package br.senai.sp.jandira.games
+package br.senai.sp.jandira.games.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import br.senai.sp.jandira.games.R
 
 class game_list_activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

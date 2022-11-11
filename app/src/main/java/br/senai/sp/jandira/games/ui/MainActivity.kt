@@ -1,8 +1,9 @@
-package br.senai.sp.jandira.games
+package br.senai.sp.jandira.games.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
