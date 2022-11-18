@@ -31,7 +31,7 @@ class GamesAdapter(val context: Context): RecyclerView.Adapter<GamesAdapter.Hold
             textTituloPt.text = games.nomeGame;
             textDescricao.text = games.descricao;
             textStudio.text = games.studio;
-            imageHolder.setImageDrawable(games.imageGame);
+            //imageHolder.setImageDrawable(games.imageGame);
         }
     }
 

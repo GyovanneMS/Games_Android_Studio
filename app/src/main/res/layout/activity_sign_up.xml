@@ -252,7 +252,7 @@
                 android:contentDescription="@string/any"
                 android:stepSize="1"
                 android:valueFrom="0"
-                android:valueTo="26"
+                android:valueTo="18"
                 app:layout_constraintEnd_toStartOf="@+id/edttLevel"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView7"
@@ -271,37 +271,39 @@
                 app:layout_constraintStart_toStartOf="@+id/aInputEmail"
                 app:layout_constraintTop_toBottomOf="@+id/aInputEmail" />
 
-            <Button
-                android:id="@+id/buttonSave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_marginBottom="10dp"
-                android:text="Button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonMasculino" />
 
-            <RadioButton
-                android:id="@+id/buttonFemale"
-                android:layout_width="wrap_content"
+            <RadioGroup
+                android:id="@+id/radioGenre"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:checked="false"
-                android:text="Female"
-                app:layout_constraintStart_toStartOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-            <RadioButton
-                android:id="@+id/buttonMasculino"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="masculine"
-                app:layout_constraintBottom_toBottomOf="@+id/buttonFemale"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                app:flow_horizontalGap="30dp"
                 app:layout_constraintEnd_toEndOf="@+id/aConsoleFavorito"
-                app:layout_constraintTop_toTopOf="@+id/buttonFemale" />
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView3">
 
+                <RadioButton
+                    android:id="@+id/buttonFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Female"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <RadioButton
+                    android:id="@+id/buttonMasculino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="100dp"
+                    android:text="masculine"
+                    app:layout_constraintBottom_toBottomOf="@+id/buttonFemale"
+                    app:layout_constraintEnd_toEndOf="@+id/radioGenre"
+                    app:layout_constraintTop_toTopOf="@+id/buttonFemale" />
+
+            </RadioGroup>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

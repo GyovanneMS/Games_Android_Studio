@@ -17,14 +17,17 @@ class Client {
     var nome = "";
     var email = "";
     var senha = "";
-    var foto: Bitmap? = null;
+    //var foto: Bitmap? = null;
+    var foto = "";
     var cidade = "";
 
 
     @ColumnInfo(name = "data_lancamento")
-    var dataNascimento: LocalDate? = null;
+    //var dataNascimento: LocalDate? = null;
+    var dataNascimento = "";
     var nivel = Level.Land;
-    var console: Console? = null;
+    //var console: Console? = null;
+    var console = "";
     var genero = 'I';
 }
 

@@ -1,3 +1,4 @@
 package br.senai.sp.jandira.games.model
 
-enum class Level { Land, Wood, Stone, Silver, Cooper, Quartz, Iron, Gold, Diamond, Emerald, Super_Ore, Miner, Ore_maker }
+enum class Level { Land, Wood, Stone, Iron, Gold, Diamond, Emerald, Miner, Ore_maker }
+

@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar!!.hide();
 
-        binding.buttonLogin.setOnClickListener {
+        binding.textViewSignUp.setOnClickListener {
             login()
         }
     }

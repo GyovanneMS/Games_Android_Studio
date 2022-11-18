@@ -16,9 +16,8 @@ abstract class DB: RoomDatabase() {
 
         fun getDataBase(context: Context): DB {
             if (/*:: Permite ver os métodos para ver se já existem*/!::instance.isInitialized) {
-                instance = Room.databaseBuilder(context, DB::class.java, "tbl_cliente")
-                    .allowMainThreadQueries().build();
-            }
+                instance = Room.databaseBuilder(context, DB::class.java, "db_cliente").allowMainThreadQueries().build();
+            }//
             return instance
         }
     }
