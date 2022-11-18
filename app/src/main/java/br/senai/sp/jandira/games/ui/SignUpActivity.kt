@@ -61,7 +61,7 @@ class SignUpActivity : AppCompatActivity() {
         Toast.makeText(this, "${genero}", Toast.LENGTH_LONG).show()
         //client.genero =
         var a = this.findViewById<RadioButton>(genero).text.first();
-        Toast.makeText(this, "${a}", Toast.LENGTH_LONG).show()
+       Toast.makeText(this, "${a}", Toast.LENGTH_LONG).show()
 
         var sliderItems = binding.aSliderConsole;
 
@@ -97,7 +97,7 @@ class SignUpActivity : AppCompatActivity() {
         var whatNumber = repository.save(client)
 
         if (whatNumber < 0 ){
-            Toast.makeText(this, "Deu tudo certo ${whatNumber}", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "${whatNumber}", Toast.LENGTH_SHORT).show()
         }
 
         finish()
