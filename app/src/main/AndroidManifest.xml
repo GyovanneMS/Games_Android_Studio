@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Games"
         tools:targetApi="31">
         <activity
-            android:name=".ui.game_list_activity"
+            android:name=".ui.GameListActivity"
             android:exported="false" />
         <activity
             android:name=".ui.SignUpActivity"

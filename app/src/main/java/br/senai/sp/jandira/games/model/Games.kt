@@ -17,11 +17,11 @@ class Games {
     var nomeGame = "";
     var studio = "";
     var descricao = "";
-    var imageGame: Bitmap? = null;
+    //var imageGame: Bitmap? = null;
 
     @ColumnInfo(name = "ano_finalizado")
     var AnoFinalizado = 0;
 
-    var finalizado = Boolean;
+  //  var finalizado = Boolean;
 
 }

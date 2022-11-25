@@ -31,7 +31,7 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="1dp"
         android:contentDescription="@string/none"
         android:fillViewport="true"
@@ -82,12 +82,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="12dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView21"
+                app:layout_constraintStart_toEndOf="@+id/imagePerson"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
                 app:srcCompat="@drawable/ic_baseline_photo_camera_24" />
 
             <ImageView
-                android:id="@+id/imageView21"
+                android:id="@+id/imagePerson"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
@@ -107,7 +107,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView22"
-                app:layout_constraintTop_toBottomOf="@+id/imageView21" />
+                app:layout_constraintTop_toBottomOf="@+id/imagePerson" />
 
             <EditText
                 android:id="@+id/aInputEmail"
@@ -296,14 +296,29 @@
                     android:id="@+id/buttonMasculino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp"
                     android:text="masculine"
                     app:layout_constraintBottom_toBottomOf="@+id/buttonFemale"
                     app:layout_constraintEnd_toEndOf="@+id/radioGenre"
                     app:layout_constraintTop_toTopOf="@+id/buttonFemale" />
 
             </RadioGroup>
+
+            <Button
+                android:id="@+id/teste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_marginEnd="39dp"
+                android:layout_marginBottom="68dp"
+                android:text="Button"
+                app:layout_constraintBottom_toTopOf="@+id/textView5"
+                app:layout_constraintEnd_toStartOf="@+id/imagePerson"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

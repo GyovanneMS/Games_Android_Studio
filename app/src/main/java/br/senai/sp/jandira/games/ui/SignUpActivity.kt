@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.games.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -21,9 +22,7 @@ class SignUpActivity : AppCompatActivity() {
 
     lateinit var binding: ActivitySignUpBinding;
 
-    lateinit var contactRepository: ClienteRepository;
-
-    lateinit var cliente: Client;
+    lateinit var contactRepository: ClienteRepository
 
     private var id = 0;
 
@@ -33,6 +32,10 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
 
         id = intent.getIntExtra("id", 0);
+
+        binding.teste.setOnClickListener {
+            save();
+        }
 
     }
 
@@ -45,11 +48,13 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         save();
-        Toast.makeText(this, "Entrou", Toast.LENGTH_LONG).show()
+        val voltar = Intent(this, MainActivity::class.java);
+        startActivity(voltar)
         return true;
     }
 
     private fun save() {
+
         val client = Client();
         client.cidade = binding.aInputCity.text.toString();
         client.email = binding.aInputEmail.text.toString();
@@ -58,11 +63,9 @@ class SignUpActivity : AppCompatActivity() {
 
 
         var genero = binding.radioGenre.id//.checkedRadioButtonId;
-        Toast.makeText(this, "${genero}", Toast.LENGTH_LONG).show()
         //client.genero =
-        var a = this.findViewById<RadioButton>(genero).text.first();
-       Toast.makeText(this, "${a}", Toast.LENGTH_LONG).show()
-
+        var generoFirstLetter = this.findViewById<RadioButton>(genero).text.first();
+        client.genero = generoFirstLetter;
         var sliderItems = binding.aSliderConsole;
 
         if (sliderItems.value.toInt() == 1 || sliderItems.value.toInt() == 2){
@@ -96,11 +99,11 @@ class SignUpActivity : AppCompatActivity() {
         val repository = ClienteRepository(this);
         var whatNumber = repository.save(client)
 
-        if (whatNumber < 0 ){
-            //Toast.makeText(this, "${whatNumber}", Toast.LENGTH_SHORT).show()
-        }
 
-        finish()
+        Toast.makeText(this, "Salvo", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "${whatNumber}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "${client}", Toast.LENGTH_SHORT).show()
+        //finish()
     }
 
 

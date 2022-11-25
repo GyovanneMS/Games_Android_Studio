@@ -10,6 +10,7 @@ import br.senai.sp.jandira.games.model.Client
 abstract class DB: RoomDatabase() {
 
     abstract fun clienteDao(): ClienteDao
+    abstract fun GamesDao_(): GamesDao_
 
     companion object {
         private lateinit var instance: DB //uma das ultimas coisas a acontecer

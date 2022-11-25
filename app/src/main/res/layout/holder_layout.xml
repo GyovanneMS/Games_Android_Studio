@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="20dp">
+    tools:layout_editor_absoluteX="20dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -17,7 +17,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/beige">
+            android:background="@color/pastel_yellow">
 
             <ImageView
                 android:id="@+id/image_holder"
