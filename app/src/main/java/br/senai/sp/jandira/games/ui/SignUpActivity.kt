@@ -21,22 +21,28 @@ import java.time.format.DateTimeFormatter
 class SignUpActivity : AppCompatActivity() {
 
     lateinit var binding: ActivitySignUpBinding;
-
+    lateinit var level: String
     lateinit var contactRepository: ClienteRepository
-
+    lateinit var client: Client
     private var id = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater);
         setContentView(R.layout.activity_sign_up)
-
+        client = Client()
         id = intent.getIntExtra("id", 0);
 
-        binding.teste.setOnClickListener {
-            save();
-        }
 
+        val levels = Level.values().map(Enum<*>::name)
+        level = levels[0]
+
+        binding.edttLevel.text = level
+
+        binding.aSliderConsole.addOnChangeListener { _, value, _ ->
+            level = levels[value.toInt()]
+            binding.edttLevel.text = level
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -47,15 +53,21 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        save();
-        val voltar = Intent(this, MainActivity::class.java);
-        startActivity(voltar)
-        return true;
+        return when (item.itemId){
+            R.id.menu_add -> {
+                save();
+                true;
+            }
+            else -> {
+                val voltar = Intent(this, MainActivity::class.java);
+                startActivity(voltar);
+                true;
+            }
+        }
     }
 
     private fun save() {
 
-        val client = Client();
         client.cidade = binding.aInputCity.text.toString();
         client.email = binding.aInputEmail.text.toString();
         client.senha = binding.aInputPassword.text.toString();
@@ -99,11 +111,10 @@ class SignUpActivity : AppCompatActivity() {
         val repository = ClienteRepository(this);
         var whatNumber = repository.save(client)
 
-
-        Toast.makeText(this, "Salvo", Toast.LENGTH_SHORT).show()
-        Toast.makeText(this, "${whatNumber}", Toast.LENGTH_SHORT).show()
-        Toast.makeText(this, "${client}", Toast.LENGTH_SHORT).show()
-        //finish()
+        if(whatNumber > 0 ){
+            Toast.makeText(this, "Salvo", Toast.LENGTH_LONG).show()
+        }
+        finish()
     }
 
 

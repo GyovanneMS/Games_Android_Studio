@@ -5,12 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import br.senai.sp.jandira.games.model.Client
+import br.senai.sp.jandira.games.model.Games
 
-@Database(entities = [Client::class], version = 1)
+@Database(entities = [Client::class, Games::class], version = 1)
 abstract class DB: RoomDatabase() {
 
     abstract fun clienteDao(): ClienteDao
-    abstract fun GamesDao_(): GamesDao_
+    //abstract fun GamesDao_(): GamesDao_
 
     companion object {
         private lateinit var instance: DB //uma das ultimas coisas a acontecer

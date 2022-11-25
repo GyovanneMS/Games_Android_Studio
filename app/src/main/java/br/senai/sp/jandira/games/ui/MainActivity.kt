@@ -10,10 +10,20 @@ import br.senai.sp.jandira.games.repository.ClienteRepository
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding;
+    lateinit var clienteRepository: ClienteRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        clienteRepository = ClienteRepository(this)
+        val dados = getSharedPreferences("dados", MODE_PRIVATE)
+
+        if (dados.getInt("id", 0) != 0) {
+            val abrirGamesActivity = Intent(this, GameListActivity::class.java)
+            abrirGamesActivity.putExtra("id", dados.getInt("id", 0))
+            startActivity(abrirGamesActivity)
+        }
+
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -32,19 +42,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun login() {
         if(validar()){
-            val email = binding.editEmail.text.toString();
-            val pass = binding.editTextPassword.text.toString();
+            var email = binding.editEmail.text.toString();
+            var pass = binding.editTextPassword.text.toString();
+            var id = 0;
+            val dados = getSharedPreferences("dados", MODE_PRIVATE)
+            val salvar = dados.edit()
 
-            //Abrir o SHarePreferences
-            val dados = ClienteRepository(this).getAll()
+            for (client in clienteRepository.getAll()){
+                if(email == client.email && pass == client.senha){
+                    id = client.id
+                }
+            }
 
-            //Verificar se os dados de autenticação estão corretos
-           // if(email == a && pass == passSp){
-                val openGames = Intent(this, GameListActivity::class.java)
-                startActivity(openGames);
-           // } else {
-                //Toast.makeText( this, "Authentication failed!!", Toast.LENGTH_SHORT).show()
-            //}
+            val openGames = Intent(this, GameListActivity::class.java)
+            startActivity(openGames);
+
         }
     }
 

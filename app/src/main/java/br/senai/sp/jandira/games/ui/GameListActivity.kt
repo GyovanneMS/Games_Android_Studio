@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.adapter.GamesAdapter
 import br.senai.sp.jandira.games.databinding.ActivityGameListBinding
-import br.senai.sp.jandira.games.repository.GamesRepositor
+import br.senai.sp.jandira.games.repository.ClienteRepository
+//import br.senai.sp.jandira.games.repository.GamesRepositor
 
 class GameListActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityGameListBinding
 
-    lateinit var repositorio: GamesRepositor
+    lateinit var clienteRepositorio: ClienteRepository
     lateinit var adapter: GamesAdapter
     lateinit var rvGames: RecyclerView
 
@@ -23,26 +24,31 @@ class GameListActivity: AppCompatActivity() {
 
         binding = ActivityGameListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        clienteRepositorio = ClienteRepository(this)
+
+
+
     }
 
     override fun onResume() {
         super.onResume()
 
-        carragarRecyperView()
+        //carragarRecyperView()
     }
 
-    private fun carragarRecyperView() {
-        repositorio = GamesRepositor(this)
-        //Pegando o metodo (Tipo o controler) getall() da "model" ContactRepository
-        val games = repositorio.getAll();
-        //Chamando o método do adapter para criar um json com cada item pedo dos contatos
-        adapter = GamesAdapter(games, this)
-        rvGames = findViewById(R.id.Rv_Games)
-        //Pegando a view e colocando "todos" os contatos nela
-        rvGames.adapter = adapter;
-        //Como visualizar isso?
-        rvGames.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-    }
+//    private fun carragarRecyperView() {
+//        repositorio = GamesRepositor(this)
+//        //Pegando o metodo (Tipo o controler) getall() da "model" ContactRepository
+//        val games = repositorio.getAll();
+//        //Chamando o método do adapter para criar um json com cada item pedo dos contatos
+//        adapter = GamesAdapter(games, this)
+//        rvGames = findViewById(R.id.Rv_Games)
+//        //Pegando a view e colocando "todos" os contatos nela
+//        rvGames.adapter = adapter;
+//        //Como visualizar isso?
+//        rvGames.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 

@@ -305,21 +305,6 @@
 
             </RadioGroup>
 
-            <Button
-                android:id="@+id/teste"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="39dp"
-                android:layout_marginBottom="68dp"
-                android:text="Button"
-                app:layout_constraintBottom_toTopOf="@+id/textView5"
-                app:layout_constraintEnd_toStartOf="@+id/imagePerson"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
-                app:layout_constraintVertical_bias="1.0" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
