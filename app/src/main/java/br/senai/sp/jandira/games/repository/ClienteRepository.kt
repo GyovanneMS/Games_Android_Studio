@@ -24,7 +24,7 @@ class ClienteRepository(context: Context) {
         return db.getAll();
     }
 
-    fun getClienteById(id: Int): Client{
-        return db.getContactById(id);
+    fun getClientById(id: Int): Client{
+        return db.getClientById(id);
     }
 }
