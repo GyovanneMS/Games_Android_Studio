@@ -27,8 +27,12 @@ class GameListActivity: AppCompatActivity() {
 
         clienteRepositorio = ClienteRepository(this)
 
-
-
+        val id = intent.getIntExtra("id", 0)
+        val user = clienteRepositorio.getClienteById(id) //Ver o nome certo
+        
+        carragarRecyperView()
+        
+        
     }
 
     override fun onResume() {
@@ -37,18 +41,19 @@ class GameListActivity: AppCompatActivity() {
         //carragarRecyperView()
     }
 
-//    private fun carragarRecyperView() {
-//        repositorio = GamesRepositor(this)
-//        //Pegando o metodo (Tipo o controler) getall() da "model" ContactRepository
-//        val games = repositorio.getAll();
-//        //Chamando o método do adapter para criar um json com cada item pedo dos contatos
-//        adapter = GamesAdapter(games, this)
-//        rvGames = findViewById(R.id.Rv_Games)
-//        //Pegando a view e colocando "todos" os contatos nela
-//        rvGames.adapter = adapter;
-//        //Como visualizar isso?
-//        rvGames.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-//    }
+    private fun carragarRecyperView() {
+        rvGames = findViewById(R.id.Rv_Games);
+        //        //Como visualizar isso?
+        rvGames.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        repositorio = GamesRepositor(this)
+        //        //Pegando a view e colocando "todos" os contatos nela
+        rvGames.adapter = adapter;
+        //        //Chamando o método do adapter para criar um json com cada item pedo dos contatos
+        //adapter = GamesAdapter(games, this)
+        
+        binding.editName.text = Client.name
+        binding.editEmail.text = Client.email
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
