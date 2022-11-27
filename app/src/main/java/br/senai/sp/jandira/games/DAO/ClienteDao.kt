@@ -19,6 +19,6 @@ interface ClienteDao {
     fun getAll(): List<Client>
 
     @Query("SELECT * FROM tbl_cliente where id = :id")
-    fun getContactById(id: Int): Client
+    fun getClientById(id: Int): Client
 
 }
