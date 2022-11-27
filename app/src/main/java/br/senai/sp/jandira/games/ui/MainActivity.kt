@@ -46,18 +46,30 @@ class MainActivity : AppCompatActivity() {
             var email = binding.editEmail.text.toString();
             var pass = binding.editTextPassword.text.toString();
             var id = 0;
-            val dados = getSharedPreferences("dados", MODE_PRIVATE)
-            val salvar = dados.edit()
+            val dados = getSharedPreferences("dados", MODE_PRIVATE);
+            val salvar = dados.edit();
+            var existe = false;
 
             for (client in clienteRepository.getAll()){
                 if(email == client.email && pass == client.senha){
-                    id = client.id
+                    id = client.id;
+                    existe = true;
+                    break;
+                    //Fazer um Toast
                 }
             }
-
+            
+            if(existe){
+                if(binding.Radioremember_me.isChecked){
+                    salvar.putInt("id", id);
+                    salvar.commit();
+                }
             val openGames = Intent(this, GameListActivity::class.java)
+            openGames.putExtra("id", id)
             startActivity(openGames);
-
+            } else {
+              Toast.makeText(this, "Erro ao dar login", Toast.LENGTH_LONG).show()
+             }
         }
     }
 
