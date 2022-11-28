@@ -11,6 +11,7 @@ import br.senai.sp.jandira.games.model.Games
 abstract class DB: RoomDatabase() {
 
     abstract fun clienteDao(): ClienteDao
+    abstract fun GamesDao_(): GamesDao_
     //abstract fun GamesDao_(): GamesDao_
 
     companion object {

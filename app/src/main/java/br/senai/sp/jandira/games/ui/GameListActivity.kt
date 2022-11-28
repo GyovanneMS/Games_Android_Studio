@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.adapter.GamesAdapter
 import br.senai.sp.jandira.games.databinding.ActivityGameListBinding
+import br.senai.sp.jandira.games.model.Client
 import br.senai.sp.jandira.games.repository.ClienteRepository
+import br.senai.sp.jandira.games.repository.GamesRepositor
+
 //import br.senai.sp.jandira.games.repository.GamesRepositor
 
 class GameListActivity: AppCompatActivity() {
@@ -27,6 +30,10 @@ class GameListActivity: AppCompatActivity() {
 
         clienteRepositorio = ClienteRepository(this)
 
+        val id = intent.getIntExtra("id", 0)
+        val user = clienteRepositorio.getClienteById(id) //Ver o nome certo
+
+        carragarRecyperView()
 
 
     }
@@ -37,18 +44,20 @@ class GameListActivity: AppCompatActivity() {
         //carragarRecyperView()
     }
 
-//    private fun carragarRecyperView() {
-//        repositorio = GamesRepositor(this)
-//        //Pegando o metodo (Tipo o controler) getall() da "model" ContactRepository
-//        val games = repositorio.getAll();
-//        //Chamando o método do adapter para criar um json com cada item pedo dos contatos
-//        adapter = GamesAdapter(games, this)
-//        rvGames = findViewById(R.id.Rv_Games)
-//        //Pegando a view e colocando "todos" os contatos nela
-//        rvGames.adapter = adapter;
-//        //Como visualizar isso?
-//        rvGames.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-//    }
+    private fun carragarRecyperView() {
+        Client = Client()
+        rvGames = findViewById(R.id.Rv_Games);
+        //        //Como visualizar isso?
+        rvGames.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        var repositorio = GamesRepositor(this)
+        //        //Pegando a view e colocando "todos" os contatos nela
+        rvGames.adapter = adapter;
+        //        //Chamando o método do adapter para criar um json com cada item pedo dos contatos
+        //adapter = GamesAdapter(games, this)
+
+        binding.textViewUserName.text = Client.nome
+        binding.textViewUserEmail.text = Client.email
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 

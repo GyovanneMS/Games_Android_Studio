@@ -3,6 +3,7 @@ package br.senai.sp.jandira.games.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.databinding.ActivityMainBinding
 import br.senai.sp.jandira.games.repository.ClienteRepository
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar!!.hide()
         setContentView(R.layout.activity_main)
         clienteRepository = ClienteRepository(this)
         val dados = getSharedPreferences("dados", MODE_PRIVATE)
@@ -45,18 +47,30 @@ class MainActivity : AppCompatActivity() {
             var email = binding.editEmail.text.toString();
             var pass = binding.editTextPassword.text.toString();
             var id = 0;
-            val dados = getSharedPreferences("dados", MODE_PRIVATE)
-            val salvar = dados.edit()
+            val dados = getSharedPreferences("dados", MODE_PRIVATE);
+            val salvar = dados.edit();
+            var existe = false;
 
             for (client in clienteRepository.getAll()){
                 if(email == client.email && pass == client.senha){
-                    id = client.id
+                    id = client.id;
+                    existe = true;
+                    break;
+                    //Fazer um Toast
                 }
             }
 
-            val openGames = Intent(this, GameListActivity::class.java)
-            startActivity(openGames);
-
+            if(existe){
+                if(binding.checkBoxRemindMe.isChecked){
+                    salvar.putInt("id", id);
+                    salvar.commit();
+                }
+                val openGames = Intent(this, GameListActivity::class.java)
+                openGames.putExtra("id", id)
+                startActivity(openGames);
+            } else {
+                Toast.makeText(this, "Erro ao dar login", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

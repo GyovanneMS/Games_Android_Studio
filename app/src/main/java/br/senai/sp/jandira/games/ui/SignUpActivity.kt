@@ -34,28 +34,29 @@ class SignUpActivity : AppCompatActivity() {
         id = intent.getIntExtra("id", 0);
 
 
-        val levels = Level.values().map(Enum<*>::name)
-        level = levels[0]
+        val levels = Level.values().map(Enum<*>::name);
+        level = levels[1];
 
-        binding.edttLevel.text = level
+        binding.edttLevel.text = level.toString();
 
         binding.aSliderConsole.addOnChangeListener { _, value, _ ->
-            level = levels[value.toInt()]
-            binding.edttLevel.text = level
+            level = levels[value.toInt()];
+            binding.edttLevel.text = level.toString();
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater;
         inflater.inflate(R.menu.menu_new_users, menu);
-
         return true;
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.menu_add -> {
-                save();
+                if(validar()){
+                    save();
+                }
                 true;
             }
             else -> {
@@ -63,6 +64,27 @@ class SignUpActivity : AppCompatActivity() {
                 startActivity(voltar);
                 true;
             }
+        }
+    }
+
+    private fun validar(): Boolean {
+        if(binding.aInputCity.text.isEmpty()){
+            binding.aInputCity.error = "Este é um campo obrigatório";
+            return false;
+        }
+        if(binding.aInputEmail.text.isEmpty()){
+            binding.aInputEmail.error = "Este é um campo obrigatório";
+            return false;
+        }
+        if(binding.aInputPassword.text.isEmpty()){
+            binding.aInputPassword.error = "Este é um campo obrigatório";
+            return false;
+        }
+        if(binding.aInputName.text.isEmpty()){
+            binding.aInputName.error = "Este é um campo obrigatório";
+            return false;
+        } else {
+            return true
         }
     }
 
