@@ -15,14 +15,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-<<<<<<< HEAD
         binding = ActivityMainBinding.inflate(layoutInflater)
         supportActionBar!!.hide()
         setContentView(binding.root)
-=======
-        supportActionBar!!.hide()
-        setContentView(R.layout.activity_main)
->>>>>>> 7cd7b1dad7cc4d89d607f9ad7ca3ce3487410362
         clienteRepository = ClienteRepository(this)
         val dados = getSharedPreferences("dados", MODE_PRIVATE)
 
@@ -65,7 +60,6 @@ class MainActivity : AppCompatActivity() {
                     //Fazer um Toast
                 }
             }
-<<<<<<< HEAD
 
             if(existe){
                 if(binding.checkBoxRemindMe.isChecked){
@@ -78,20 +72,6 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Erro ao dar login", Toast.LENGTH_LONG).show()
             }
-=======
-            
-            if(existe){
-                if(binding.Radioremember_me.isChecked){
-                    salvar.putInt("id", id);
-                    salvar.commit();
-                }
-            val openGames = Intent(this, GameListActivity::class.java)
-            openGames.putExtra("id", id)
-            startActivity(openGames);
-            } else {
-              Toast.makeText(this, "Erro ao dar login", Toast.LENGTH_LONG).show()
-             }
->>>>>>> 7cd7b1dad7cc4d89d607f9ad7ca3ce3487410362
         }
     }
 

@@ -39,7 +39,7 @@ class GameListsActivity: AppCompatActivity() {
         clienteRepositorio = ClienteRepository(this)
 
         val id = intent.getIntExtra("id", 0)
-        val user = clienteRepositorio.getClienteById(id) //Ver o nome certo
+        val client = clienteRepositorio.getClientById(id) //Ver o nome certo
 
         carragarRecyperView()
 

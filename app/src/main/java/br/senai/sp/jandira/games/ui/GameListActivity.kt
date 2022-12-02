@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.adapter.GamesAdapter
 import br.senai.sp.jandira.games.databinding.ActivityGameListBinding
+import br.senai.sp.jandira.games.model.Client
 import br.senai.sp.jandira.games.repository.ClienteRepository
 //import br.senai.sp.jandira.games.repository.GamesRepositor
 
@@ -28,7 +29,7 @@ class GameListActivity: AppCompatActivity() {
         clienteRepositorio = ClienteRepository(this)
 
         val id = intent.getIntExtra("id", 0)
-        val user = clienteRepositorio.getClientById(id) //Ver o nome certo
+        val client = clienteRepositorio.getClientById(id) //Ver o nome certo
         
         carragarRecyperView()
         
@@ -45,14 +46,14 @@ class GameListActivity: AppCompatActivity() {
         rvGames = findViewById(R.id.Rv_Games);
         //        //Como visualizar isso?
         rvGames.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        repositorio = GamesRepositor(this)
+//        repositorio = GamesRepositor(this)
         //        //Pegando a view e colocando "todos" os contatos nela
-        rvGames.adapter = adapter;
+
         //        //Chamando o método do adapter para criar um json com cada item pedo dos contatos
         //adapter = GamesAdapter(games, this)
-        
-        binding.editName.text = Client.name
-        binding.editEmail.text = Client.email
+
+//        binding.textViewUserName = client.
+//        binding.editEmail.text = Client.email
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
