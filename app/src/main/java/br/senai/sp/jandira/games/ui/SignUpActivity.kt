@@ -35,6 +35,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
         val levels = Level.values().map(Enum<*>::name);
+<<<<<<< HEAD
         level = levels[0];
 
         binding.edttLevel.text = level;
@@ -42,6 +43,15 @@ class SignUpActivity : AppCompatActivity() {
         binding.sliderItems.addOnChangeListener { _, value, _ ->
             level = levels[value.toInt() - 1];
             binding.edttLevel.text = level;
+=======
+        level = levels[1];
+
+        binding.edttLevel.text = level.toString();
+
+        binding.aSliderConsole.addOnChangeListener { _, value, _ ->
+            level = levels[value.toInt()];
+            binding.edttLevel.text = level.toString();
+>>>>>>> 7cd7b1dad7cc4d89d607f9ad7ca3ce3487410362
         }
     }
 
@@ -53,9 +63,15 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
+<<<<<<< HEAD
             R.id.menu_save -> {
                 Log.i("xpto", "clicou!!!")
+=======
+            R.id.menu_add -> {
+                if(validacao()){
+>>>>>>> 7cd7b1dad7cc4d89d607f9ad7ca3ce3487410362
                 save();
+                }
                 true;
             }
             else -> {
@@ -63,6 +79,25 @@ class SignUpActivity : AppCompatActivity() {
                 startActivity(voltar);
                 true;
             }
+        }
+    }
+    
+    private fun validar(): Boolean {
+        if(binding.aInputCity.text.isEmpty()){
+            binding.aInputCity.error = "Este é um campo obrigatório";
+            return false;
+        }
+        if(binding.aInputEmail.text.isEmpty()){
+            binding.aInputEmail.error = "Este é um campo obrigatório";
+            return false;
+        }
+        if(binding.aInputPassword.text.isEmpty()){
+            binding.aInputPassword.error = "Este é um campo obrigatório";
+            return false;
+        }
+        if(binding.aInputName.text.isEmpty()){
+            binding.aInputName.error = "Este é um campo obrigatório";
+            return false;
         }
     }
 

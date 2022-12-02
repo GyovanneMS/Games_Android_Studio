@@ -24,7 +24,11 @@ class ClienteRepository(context: Context) {
         return db.getAll();
     }
 
+<<<<<<< HEAD
     fun getClienteById(id: Int): Client{
+=======
+    fun getClientById(id: Int): Client{
+>>>>>>> 7cd7b1dad7cc4d89d607f9ad7ca3ce3487410362
         return db.getClientById(id);
     }
 }
