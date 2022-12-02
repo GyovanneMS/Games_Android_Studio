@@ -40,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -204,9 +204,9 @@
                 android:text="@string/casual"
                 android:textColor="@color/navy_blue"
                 android:textSize="32sp"
-                app:layout_constraintBottom_toBottomOf="@+id/aSlider_console"
+                app:layout_constraintBottom_toBottomOf="@+id/sliderItems"
                 app:layout_constraintEnd_toEndOf="@+id/aInputBirthDate"
-                app:layout_constraintTop_toTopOf="@+id/aSlider_console" />
+                app:layout_constraintTop_toTopOf="@+id/sliderItems" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -216,8 +216,8 @@
                 android:text="@string/favorite_console"
                 android:textColor="@color/grey"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/aSlider_console"
-                app:layout_constraintTop_toBottomOf="@+id/aSlider_console" />
+                app:layout_constraintStart_toStartOf="@+id/sliderItems"
+                app:layout_constraintTop_toBottomOf="@+id/sliderItems" />
 
             <Spinner
                 android:id="@+id/aConsoleFavorito"
@@ -244,7 +244,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/aConsoleFavorito" />
 
             <com.google.android.material.slider.Slider
-                android:id="@+id/aSlider_console"
+                android:id="@+id/sliderItems"
                 android:layout_width="0dp"
                 android:layout_height="300dp"
                 android:layout_marginTop="8dp"

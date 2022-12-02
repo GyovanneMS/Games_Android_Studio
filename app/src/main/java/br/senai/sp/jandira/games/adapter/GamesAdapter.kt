@@ -11,9 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.model.Games
 
-class GamesAdapter(var games: List<Games>, val context: Context): RecyclerView.Adapter<GamesAdapter.HolderPt>() {
+class GamesAdapter(val context: Context): RecyclerView.Adapter<GamesAdapter.HolderPt>() {
 
     private var gamesList = listOf<Games>();
+
+    fun updateGamesList(games: List<Games>){
+        this.gamesList = games;
+        notifyDataSetChanged()
+    }
 
     class HolderPt(view: View): RecyclerView.ViewHolder(view) {
         val textTituloPt = view.findViewById<TextView>(R.id.text_view_title);

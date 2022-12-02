@@ -15,13 +15,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         supportActionBar!!.hide()
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
         clienteRepository = ClienteRepository(this)
         val dados = getSharedPreferences("dados", MODE_PRIVATE)
 
         if (dados.getInt("id", 0) != 0) {
-            val abrirGamesActivity = Intent(this, GameListActivity::class.java)
+            val abrirGamesActivity = Intent(this, GameListsActivity::class.java)
             abrirGamesActivity.putExtra("id", dados.getInt("id", 0))
             startActivity(abrirGamesActivity)
         }
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                     salvar.putInt("id", id);
                     salvar.commit();
                 }
-                val openGames = Intent(this, GameListActivity::class.java)
+                val openGames = Intent(this, GameListsActivity::class.java)
                 openGames.putExtra("id", id)
                 startActivity(openGames);
             } else {

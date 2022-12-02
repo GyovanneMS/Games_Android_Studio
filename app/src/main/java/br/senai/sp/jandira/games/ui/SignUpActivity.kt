@@ -2,9 +2,11 @@ package br.senai.sp.jandira.games.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -20,28 +22,26 @@ import java.time.format.DateTimeFormatter
 
 class SignUpActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivitySignUpBinding;
-    lateinit var level: String
-    lateinit var contactRepository: ClienteRepository
-    lateinit var client: Client
-    private var id = 0;
+    private lateinit var binding: ActivitySignUpBinding;
+    private lateinit var level: String
+    private lateinit var clienteRepositor: ClienteRepository
+    private lateinit var client: Client
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater);
-        setContentView(R.layout.activity_sign_up)
+        setContentView(binding.root)
         client = Client()
-        id = intent.getIntExtra("id", 0);
 
 
         val levels = Level.values().map(Enum<*>::name);
-        level = levels[1];
+        level = levels[0];
 
-        binding.edttLevel.text = level.toString();
+        binding.edttLevel.text = level;
 
-        binding.aSliderConsole.addOnChangeListener { _, value, _ ->
-            level = levels[value.toInt()];
-            binding.edttLevel.text = level.toString();
+        binding.sliderItems.addOnChangeListener { _, value, _ ->
+            level = levels[value.toInt() - 1];
+            binding.edttLevel.text = level;
         }
     }
 
@@ -53,10 +53,9 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
-            R.id.menu_add -> {
-                if(validar()){
-                    save();
-                }
+            R.id.menu_save -> {
+                Log.i("xpto", "clicou!!!")
+                save();
                 true;
             }
             else -> {
@@ -68,75 +67,87 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun validar(): Boolean {
-        if(binding.aInputCity.text.isEmpty()){
-            binding.aInputCity.error = "Este é um campo obrigatório";
-            return false;
-        }
         if(binding.aInputEmail.text.isEmpty()){
             binding.aInputEmail.error = "Este é um campo obrigatório";
+            Log.i("xpto", "Email!")
             return false;
         }
-        if(binding.aInputPassword.text.isEmpty()){
+        else if(binding.aInputPassword.text.isEmpty()){
             binding.aInputPassword.error = "Este é um campo obrigatório";
+            Log.i("xpto", "Senha!")
             return false;
         }
-        if(binding.aInputName.text.isEmpty()){
+        else if(binding.aInputName.text.isEmpty()){
             binding.aInputName.error = "Este é um campo obrigatório";
+            Log.i("xpto", "nome!")
             return false;
-        } else {
+        }
+        else if(binding.aInputCity.text.isEmpty()){
+            binding.aInputCity.error = "Este é um campo obrigatório";
+            Log.i("xpto", "Cidade!")
+            return false;
+        }
+        else {
             return true
         }
     }
 
     private fun save() {
+        if(validar()){
+            Log.i("xpto", "Validou!")
+            client.cidade = binding.aInputCity.text.toString();
+            client.email = binding.aInputEmail.text.toString();
+            client.senha = binding.aInputPassword.text.toString();
+            client.nome = binding.aInputName.text.toString();
 
-        client.cidade = binding.aInputCity.text.toString();
-        client.email = binding.aInputEmail.text.toString();
-        client.senha = binding.aInputPassword.text.toString();
-        client.nome = binding.aInputName.text.toString();
 
-
-        var genero = binding.radioGenre.id//.checkedRadioButtonId;
-        //client.genero =
-        var generoFirstLetter = this.findViewById<RadioButton>(genero).text.first();
-        client.genero = generoFirstLetter;
-        var sliderItems = binding.aSliderConsole;
-
-        if (sliderItems.value.toInt() == 1 || sliderItems.value.toInt() == 2){
+            var genero = binding.radioGenre.id//.checkedRadioButtonId;
+            //client.genero =
+           // var generoFirstLetter = this.findViewById<RadioButton>(genero).text.first();
+            //client.genero = generoFirstLetter;
+            var sliderItems = binding.sliderItems;
             client.nivel = Level.Land;
-        }
-        else if(sliderItems.value.toInt() == 3 || sliderItems.value.toInt() == 4){
-            client.nivel = Level.Wood;
-        }
-        else if(sliderItems.value.toInt() == 5 || sliderItems.value.toInt() == 6){
-            client.nivel = Level.Stone;
-        }
-        else if(sliderItems.value.toInt() == 7 || sliderItems.value.toInt() == 8){
-            client.nivel = Level.Iron;
-        }
-        else if(sliderItems.value.toInt() == 9 || sliderItems.value.toInt() == 10){
-            client.nivel = Level.Gold;
-        }
-        else if(sliderItems.value.toInt() == 11 || sliderItems.value.toInt() == 12){
-            client.nivel = Level.Diamond;
-        }
-        else if(sliderItems.value.toInt() == 13 || sliderItems.value.toInt() == 14){
-            client.nivel = Level.Emerald;
-        }
-        else if(sliderItems.value.toInt() == 15 || sliderItems.value.toInt() == 16){
-            client.nivel = Level.Miner;
-        }
-        else if(sliderItems.value.toInt() == 17 || sliderItems.value.toInt() == 18){
-            client.nivel = Level.Ore_maker;
-        }
+            if (sliderItems.value.toInt() == 1 || sliderItems.value.toInt() == 2){
+                client.nivel = Level.Land;
+            }
+            else if(sliderItems.value.toInt() == 3 || sliderItems.value.toInt() == 4){
+                client.nivel = Level.Wood;
+            }
+            else if(sliderItems.value.toInt() == 5 || sliderItems.value.toInt() == 6){
+                client.nivel = Level.Stone;
+            }
+            else if(sliderItems.value.toInt() == 7 || sliderItems.value.toInt() == 8){
+                client.nivel = Level.Iron;
+            }
+            else if(sliderItems.value.toInt() == 9 || sliderItems.value.toInt() == 10){
+                client.nivel = Level.Gold;
+            }
+            else if(sliderItems.value.toInt() == 11 || sliderItems.value.toInt() == 12){
+                client.nivel = Level.Diamond;
+            }
+            else if(sliderItems.value.toInt() == 13 || sliderItems.value.toInt() == 14){
+                client.nivel = Level.Emerald;
+            }
+            else if(sliderItems.value.toInt() == 15 || sliderItems.value.toInt() == 16){
+                client.nivel = Level.Miner;
+            }
+            else if(sliderItems.value.toInt() == 17 || sliderItems.value.toInt() == 18){
+                client.nivel = Level.Ore_maker;
+            }
 
-        val repository = ClienteRepository(this);
-        var whatNumber = repository.save(client)
+            clienteRepositor = ClienteRepository(this);
+            var teste = clienteRepositor.save(client)
+            if(teste > 0){
+                Toast.makeText(this, "Hola", Toast.LENGTH_LONG).show()
+                finish()
+            } else{
+                Log.i("xpto", "Não Salvou!!!")
+                Toast.makeText(this, "Não salvou", Toast.LENGTH_LONG).show()
+            }
 
-        if(whatNumber > 0 ){
-            Toast.makeText(this, "Salvo", Toast.LENGTH_LONG).show()
+
+
         }
-        finish()
     }
 
 

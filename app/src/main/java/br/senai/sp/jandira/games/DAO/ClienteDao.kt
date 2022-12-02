@@ -7,18 +7,18 @@ import br.senai.sp.jandira.games.model.Client
 interface ClienteDao {
 
     @Insert
-    fun save(contact: Client): Long //
+    fun save(cliente: Client): Long //
 
     @Delete
-    fun delete(contact: Client): Int //Quantidade de registros apagados
+    fun delete(cliente: Client): Int //Quantidade de registros apagados
 
     @Update
-    fun update(contact: Client): Int  //Quantidade de atualizações feitas com sucesso
+    fun update(cliente: Client): Int  //Quantidade de atualizações feitas com sucesso
 
     @Query("SELECT * FROM tbl_cliente ORDER by nome ASC")
     fun getAll(): List<Client>
 
     @Query("SELECT * FROM tbl_cliente where id = :id")
-    fun getContactById(id: Int): Client
+    fun getClientById(id: Int): Client
 
 }

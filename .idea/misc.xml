@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.145083932853717" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.4525" />
         <entry key="app/src/main/res/drawable/baixo_azul.xml" value="0.4525" />
         <entry key="app/src/main/res/drawable/baixo_azul_escuro.xml" value="0.4525" />
@@ -25,13 +26,13 @@
         <entry key="app/src/main/res/drawable/small_retangle.xml" value="0.477" />
         <entry key="app/src/main/res/drawable/symbol_retangle.xml" value="0.4525" />
         <entry key="app/src/main/res/layout/a.xml" value="0.28958333333333336" />
-        <entry key="app/src/main/res/layout/activity_game_list.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_game_list.xml" value="0.4425925925925926" />
         <entry key="app/src/main/res/layout/activity_game_lists.xml" value="0.2911458333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.55" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.37623762376237624" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.55" />
         <entry key="app/src/main/res/layout/holder_layout.xml" value="0.45" />
         <entry key="app/src/main/res/menu/menu_gamelist.xml" value="0.5192708333333333" />
-        <entry key="app/src/main/res/menu/menu_new_users.xml" value="0.375" />
+        <entry key="app/src/main/res/menu/menu_new_users.xml" value="0.21761658031088082" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.4525" />
       </map>
     </option>

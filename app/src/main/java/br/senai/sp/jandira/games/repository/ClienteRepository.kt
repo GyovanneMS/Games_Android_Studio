@@ -8,16 +8,16 @@ class ClienteRepository(context: Context) {
 
     private val db = DB.getDataBase(context).clienteDao();
 
-    fun save(contact: Client): Long{
-        return db.save(contact);
+    fun save(cliente: Client): Long{
+        return db.save(cliente);
     }
 
-    fun update(contact: Client): Int{
-        return db.update(contact);
+    fun update(cliente: Client): Int{
+        return db.update(cliente);
     }
 
-    fun delete(contact: Client): Int{
-        return db.delete(contact);
+    fun delete(cliente: Client): Int{
+        return db.delete(cliente);
     }
 
     fun getAll(): List<Client> {
@@ -25,6 +25,6 @@ class ClienteRepository(context: Context) {
     }
 
     fun getClienteById(id: Int): Client{
-        return db.getContactById(id);
+        return db.getClientById(id);
     }
 }
